@@ -1,0 +1,31 @@
+default: &default
+  adapter: <%= node['ds-rails']['rails']['default_adapter'] %>
+  pool: 5
+  timeout: 5000
+
+development:
+  adapter: <%= node['ds-rails']['rails']['development_adapter'] %>
+  encoding: unicode
+  database: <%= node['ds-rails']['development']['database']['database_name'] %>
+  pool: 5
+  host: <%= node['ds-rails']['development']['database']['database_host'] %>
+  username: <%= node['ds-rails']['development']['database']['database_user'] %>
+  password: <%= node['ds-rails']['development']['database']['database_password'] %>
+
+test:
+  adapter: <%= node['ds-rails']['rails']['test_adapter'] %>
+  encoding: unicode
+  database: <%= node['ds-rails']['test']['database']['database_name'] %>
+  pool: 5
+  host: <%= node['ds-rails']['test']['database']['database_host'] %>
+  username: <%= node['ds-rails']['test']['database']['database_user'] %>
+  password: <%= node['ds-rails']['test']['database']['database_password'] %>
+
+production:
+  adapter: <%= node['ds-rails']['rails']['production_adapter'] %>
+  encoding: unicode
+  database: <%= node['ds-rails']['production']['database']['database_name'] %>
+  pool: 5
+  host: <%= node['ds-rails']['production']['database']['database_host'] %>
+  username: <%= node['ds-rails']['production']['database']['database_user'] %>
+  password: <%= node['ds-rails']['production']['database']['database_password'] %>

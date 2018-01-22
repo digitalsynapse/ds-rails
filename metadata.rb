@@ -1,10 +1,10 @@
 name 'ds-rails'
-maintainer 'The Authors'
-maintainer_email 'you@example.com'
-license 'All Rights Reserved'
+maintainer 'Robert Parkhurst'
+maintainer_email 'raparkhurst@digitalsynapse.io'
+license 'Apache 2'
 description 'Installs/Configures ds-rails'
 long_description 'Installs/Configures ds-rails'
-version '0.1.0'
+version '0.1.5'
 chef_version '>= 12.1' if respond_to?(:chef_version)
 
 # The `issues_url` points to the location where issues for this cookbook are
@@ -18,3 +18,8 @@ chef_version '>= 12.1' if respond_to?(:chef_version)
 # a Supermarket.
 #
 # source_url 'https://github.com/<insert_org_here>/ds-rails'
+
+
+depends 'docker', '~> 4.0'
+depends 'database'
+depends 'postgresql'
