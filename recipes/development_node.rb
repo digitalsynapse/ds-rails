@@ -2,6 +2,7 @@ include_recipe "ds-rails"
 
 
 # install software we need
+include_recipe "ds-rails::sfw_base_dev"
 include_recipe "ds-rails::sfw_rails"
 
 # setup databases

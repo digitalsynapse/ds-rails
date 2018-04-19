@@ -16,8 +16,8 @@ case node['ds-rails']['database']['type']
 
     test_password = random_password
 
-    node.set_unless['ds-rails']['test']['database']['database_password'] = test_password
-    node.set_unless['ds-rails']['test']['database']['database_name'] = node['ds-rails']['test']['database']['database_name']
+    node.default_unless['ds-rails']['test']['database']['database_password'] = test_password
+    node.default_unless['ds-rails']['test']['database']['database_name'] = node['ds-rails']['test']['database']['database_name']
 
     postgresql_database node['ds-rails']['test']['database']['database_name'] do
       connection(

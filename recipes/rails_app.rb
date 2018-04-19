@@ -12,7 +12,7 @@ end
 
 # Install RAILS gems
 execute "install-app-gems" do
-  command "cd #{node['ds-rails']['rails']['app_home_dir']} ; bundle install"
+	command "cd #{node['ds-rails']['rails']['app_home_dir']} ; bundle2.3 install"
   not_if { ::File.exists?("#{node['ds-rails']['rails']['app_home_dir']}/Gemfile.lock") }
 end
 

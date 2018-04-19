@@ -1,13 +1,21 @@
-node['ds-rails'][:packages][:rails].each do |pkg,ver|
-  package pkg do
-    if ver == "latest"
+execute "nodejs" do
+  command "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -" if node['ds-rails']['nodejs']['version'] == "8"
+  command "curl -sL https://deb.nodesource.com/setup_8.x | sudo -E bash -" if node['ds-rails']['nodejs']['version'] == "9"
+end
+
+
+
+node['ds-rails']['packages']['rails'].each do |p,v|
+  package p do
+    if v == "latest"
       action :upgrade
-      #options "--force-yes"
-    #else
-    #  action ver
+    else
+      version v
     end
   end
 end
+
+
 
 
 case node['platform']
@@ -53,12 +61,12 @@ end
 execute "gem update --system"
 
 
-node['ds-rails'][:packages][:rails][:gems].each do |pkg,ver|
-  gem_package pkg do
-    if ver == "latest"
+node['ds-rails']['packages']['ruby_gems'].each do |p,v|
+  gem_package p do
+    if v == "latest"
       action :upgrade
-    #else
-    #  action ver
+    else
+      version v
     end
   end
 end

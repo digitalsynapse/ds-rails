@@ -12,8 +12,7 @@ default['ds-rails'][:packages][:base] = case node['platform_family']
                                                      "libpq-dev" => "latest"
                                                  }
                                                else
-                                                 {
-                                                 }
+                                                 {}
                                              end
 
 
@@ -33,8 +32,8 @@ default['ds-rails'][:packages][:rails] = case node['platform_family']
                                               end
 
 
-default['ds-rails'][:packages][:rails][:gems] = {
-    "bundle" => "latest",
+default['ds-rails'][:packages][:ruby_gems] = {
+    "bundler" => "latest",
     "passenger" => "latest",
     "rails" => "latest",
     "rspec" => "latest",

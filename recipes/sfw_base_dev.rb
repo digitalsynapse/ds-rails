@@ -1,11 +1,11 @@
 # installs applications for development use -- don't use in production
 
-node['ds-rails'][:packages][:base].each do |pkg,ver|
-  package pkg do
-    if ver == "latest"
+node['ds-rails']['packages']['base'].each do |p,v|
+  package p do
+    if v == "latest"
       action :upgrade
     else
-      action ver
+      version v
     end
   end
 end
